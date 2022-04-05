@@ -1,0 +1,29 @@
+@mixin color-scheme-light {
+  --color-background: #edeffb;
+  --color-foreground: #09090c;
+  --color-border-light: #6272a4;
+  --color-primary: #50fa7b;
+  --color-secondary: #8be9fd;
+}
+
+@mixin color-scheme-dark {
+  --color-background: #282a36;
+  --color-foreground: #f8f8f2;
+  --color-border-light: #6272a4;
+  --color-primary: #50fa7b;
+  --color-secondary: #8be9fd;
+}
+
+:root body {
+  @media (prefers-color-scheme: light) {
+    @include color-scheme-light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include color-scheme-dark;
+  }
+
+  header {
+    @include color-scheme-dark;
+  }
+}

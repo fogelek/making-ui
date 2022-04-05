@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "sass:dev": "sass src/css:dist/css --watch",
+    "sass:prod": "sass src/css:dist/css --no-source-map",
+    "postcss:prod": "postcss --use autoprefixer cssnano --no-map --replace dist/css/*.css",
+    "css:dev": "npm run sass:dev",
+    "css:prod": "npm run sass:prod & npm run postcss:prod",
+    "eleventy:serve": "eleventy --serve",
+    "eleventy:build": "eleventy",
+    "start": "npm run css:dev & npm run eleventy:serve",
+    "build": "npm run css:prod && npm run eleventy:build"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "autoprefixer": "^10.4.4",
+    "cssnano": "^5.1.7",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.49.11"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}
