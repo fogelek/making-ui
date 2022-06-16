@@ -19,6 +19,7 @@ Please note, that purpose of this tutorial is to have a functioning tabs, not to
 ## Code
 
 Our code will consist of 4 parts:
+
 1. [Container for the component](#container)
 2. [Tab navigation strip](#navigation-strip)
 3. [Tab content](#tab-content)
@@ -29,8 +30,7 @@ Our code will consist of 4 parts:
 Container is pretty straightforward:
 
 ```html
-<div class="tabs-container">
-</div>
+<div class="tabs-container"></div>
 ```
 
 Nothing fancy here. We will use `flexbox` to position tabs within. I'm also adding padding around container so our tabs will be distinguishable from the surrounding components.
@@ -51,13 +51,13 @@ To create tab navigation I will use hidden radio buttons with labels:
 
 ```html
 <div class="tabs-container">
-    <!-- TAB 1 -->
-    <input type="radio" name="tab-selector" id="tab1" selected />
-    <label for="tab1">Tab 1</label>
+  <!-- TAB 1 -->
+  <input type="radio" name="tab-selector" id="tab1" selected />
+  <label for="tab1">Tab 1</label>
 
-    <!-- TAB 2 -->
-    <input type="radio" name="tab-selector" id="tab2" />
-    <label for="tab2">Tab 2</label>
+  <!-- TAB 2 -->
+  <input type="radio" name="tab-selector" id="tab2" />
+  <label for="tab2">Tab 2</label>
 </div>
 ```
 
@@ -65,7 +65,6 @@ Radios need to have exactly same name, so browser will treat them as single fiel
 
 ```scss
 .tabs-container {
-
   > input[type="radio"] {
     display: none;
   }
@@ -89,13 +88,9 @@ Now we can add actual tabs to the page.
 
 ```html
 <div class="tabs">
-    <article>
-        Tab 1
-    </article>
+  <article>Tab 1</article>
 
-    <article>
-        Tab 2
-    </article>
+  <article>Tab 2</article>
 </div>
 ```
 
@@ -103,24 +98,20 @@ Let's put this container right beneath our navigation:
 
 ```html
 <div class="tabs-container">
-    <!-- TAB 1 -->
-    <input type="radio" name="tab-selector" id="tab1" checked />
-    <label for="tab1">Tab 1</label>
+  <!-- TAB 1 -->
+  <input type="radio" name="tab-selector" id="tab1" checked />
+  <label for="tab1">Tab 1</label>
 
-    <!-- TAB 2 -->
-    <input type="radio" name="tab-selector" id="tab2" />
-    <label for="tab2">Tab 2</label>
+  <!-- TAB 2 -->
+  <input type="radio" name="tab-selector" id="tab2" />
+  <label for="tab2">Tab 2</label>
 
-    <!-- TABS CONTENT -->
-    <div class="tabs">
-        <article>
-            Tab 1
-        </article>
+  <!-- TABS CONTENT -->
+  <div class="tabs">
+    <article>Tab 1</article>
 
-        <article>
-            Tab 2
-        </article>
-    </div>
+    <article>Tab 2</article>
+  </div>
 </div>
 ```
 
@@ -132,7 +123,6 @@ Then, we tell browser to hide all direct descendants of `.tabs`. We will later a
 
 ```scss
 .tab-container {
-
   .tabs {
     flex-basis: 100%;
     padding: 0.5rem;
@@ -180,7 +170,7 @@ This selector will match all checked radio buttons, that are direct descendants 
 Will match a label, that is a direct next sibling of previously matched, selected radio button. With that selector, we can mark the selected tab with an border bottom.
 
 ```scss
-@for $i from 1 through 2
+@for $i from 1 through 2 ;
 ```
 
 Then we get to the fancy SASS feature, that is a **for loop**. It will allow us to easily generate generic selectors for tab content. It will go from `1` to `n`, in this case `2`, and will generate all the code that is inside, replacing `#{$i}` with the numbers. If you don't care about bundle size, you can generate more selectors upfront not to worry about incrementing that number while adding tabs.
@@ -197,11 +187,17 @@ Then we get to the fancy SASS feature, that is a **for loop**. It will allow us 
 That in CSS will become
 
 ```css
-.tab-container > input[type="radio"]:checked:nth-of-type(1) ~ .tabs > *:nth-child(1) {
+.tab-container
+  > input[type="radio"]:checked:nth-of-type(1)
+  ~ .tabs
+  > *:nth-child(1) {
   display: block;
 }
 
-.tab-container > input[type="radio"]:checked:nth-of-type(2) ~ .tabs > *:nth-child(2) {
+.tab-container
+  > input[type="radio"]:checked:nth-of-type(2)
+  ~ .tabs
+  > *:nth-child(2) {
   display: block;
 }
 ```
@@ -211,6 +207,7 @@ And finally the selector, that will allow us to show selected tab. In here, for 
 ## Summary
 
 And that's it! Easy, tiny, performant tab component, ideal for static pages! If you want to play around with it, here's sandbox:
+
 <div class="code">
 <iframe src="https://codesandbox.io/embed/css-tabs-vi2w8x?fontsize=14&hidenavigation=1&module=%2Fstyle.scss&theme=dark"
      title="css-tabs"
@@ -218,6 +215,7 @@ And that's it! Easy, tiny, performant tab component, ideal for static pages! If 
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
 </div>
-   And if you don't want to miss more upcoming tutorials, you can watch my repo on github, where I will be putting more of these:
 
-   [CSS Cookbook by Fogel](https://github.com/fogelek/css-cookbook)
+And if you don't want to miss more upcoming tutorials, you can watch my repo on github, where I will be putting more of these:
+
+[CSS Cookbook by Fogel](https://github.com/fogelek/css-cookbook)

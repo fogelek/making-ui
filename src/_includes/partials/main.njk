@@ -3,6 +3,7 @@
         <span class="title">{{ metadata.title }}</span>
         <span class="subtitle">{{ metadata.subtitle }}</span>
     </h1>
+    {% include "partials/topmenu.njk" %}
 </header>
 <nav class="main">
     {{ content | safe }}

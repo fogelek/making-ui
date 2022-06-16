@@ -53,4 +53,32 @@ header {
     grid-column: 3;
     margin-right: 50px;
   }
+
+  .socials {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    height: 100%;
+    align-items: center;
+  }
+
+  .github > svg {
+    fill: $color-foreground;
+  }
+
+  .github,
+  .avatar,
+  .avatar > img {
+    width: 2em;
+    height: 2em;
+    transition: 0.3s transform ease;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+
+  .avatar > img {
+    border-radius: 50%;
+  }
 }

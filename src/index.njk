@@ -5,7 +5,7 @@ layout: layouts/layout.njk
 {%- for post in collections.post -%}
     <li>
         <a href="{{ post.url }}">
-            <article-box animate>
+            <article-box>
               <h2>{{ post.data.title }}</h2><h3>{{ post.data.subtitle }}</h3>
             </article-box>
         </a>
