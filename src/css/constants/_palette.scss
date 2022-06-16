@@ -1,5 +1,11 @@
-$color-background: var(--color-background);
-$color-foreground: var(--color-foreground);
-$color-primary: var(--color-primary);
-$color-secondary: var(--color-secondary);
-$color-border-light: var(--color-border-light);
+@use "sass:color";
+
+$color-background: #282a36;
+$color-foreground: #f8f8f2;
+$color-primary: #2f2;
+$color-secondary: #22f;
+$color-primary-background: #{color.adjust($color-primary, $lightness: -20%)};
+$color-secondary-background: #{color.adjust($color-secondary, $lightness: -20%)};
+$color-primary-text: #a8ff60;
+$color-secondary-text: #96cbfe;
+$color-border-light: #6272a4;

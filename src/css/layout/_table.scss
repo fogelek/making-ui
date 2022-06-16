@@ -1,0 +1,21 @@
+@import "../constants/palette";
+
+$color-table-border: $color-border-light;
+
+td, th {
+  padding: 0.3em;
+  vertical-align: middle;
+  border-left: 1px solid $color-table-border;
+
+  &:last-of-type {
+    border-right: 1px solid $color-table-border;
+  }
+}
+
+tr {
+  border-top: 1px solid $color-table-border;
+
+  &:last-of-type {
+    border-bottom: 1px solid $color-table-border;
+  }
+}

@@ -1,0 +1,23 @@
+nav.main {
+  flex-grow: 10;
+  display: grid;
+  place-content: center;
+}
+
+ul.posts {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  list-style-type: none;
+
+  li {
+    width: 500px;
+    height: 200px;
+    border-radius: 5px;
+    align-self: center;
+    justify-self: center;
+    display: grid;
+  }
+}

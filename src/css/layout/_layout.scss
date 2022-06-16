@@ -1,87 +1,84 @@
+@use "sass:color";
 @import "../constants/palette";
 
 body {
   background: $color-background;
+  background: linear-gradient(
+    90deg,
+    $color-primary-background,
+    $color-secondary-background
+  );
   color: $color-foreground;
-  font-size: 12px;
-}
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
-header {
-  width: 100vw;
-  height: 80px;
-  border-bottom: 2px solid $color-border-light;
-  box-shadow: #6272a488 0 3px 10px 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  align-content: center;
-  color: $color-foreground;
-  background: $color-background;
-
-  h1 {
-    font-size: 2rem;
-    grid-column: 2;
-  }
-
-  .links {
-    display: flex;
-    flex-direction: row;
-    grid-column: 3;
-    margin-right: 50px;
-  }
-
-  svg {
-    fill: $color-foreground;
-  }
-}
-
-.content-wrapper {
-  width: 100vw;
-
-  .content {
-    width: 1024px;
-    margin: 32px auto 16px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    h2 {
-      align-self: center;
-      font-size: 1.7rem;
-      padding: 0 20px 10px;
+  .bg-container {
+    &,
+    > canvas {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
     }
 
-    p {
-      text-align: justify;
-      font-size: 1.1rem;
-    }
+    background-image: paint(gradientee);
+    z-index: -2;
+    --gradientee-color-from: #{$color-primary-background};
+    --gradientee-color-to: #{$color-secondary-background};
+    --gradientee-box-size: 60;
+    --gradientee-seed: 3200;
+    --gradientee-deflection-level: 20;
+    --gradientee-color-randomness: 0;
 
-    figure {
-      display: flex;
-      flex-direction: column;
-    }
+    > canvas {
+      z-index: -1;
 
-    figcaption {
-      align-self: flex-end;
-      font-size: 1rem;
-      font-style: italic;
-      padding-top: 4px;
+      @supports (background: paint(id)) {
+        display: none;
+      }
     }
   }
 }
 
-ul.main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 500px);
-  grid-gap: 16px;
+svg.defs {
+  width: 0;
+  height: 0;
+}
 
-  li {
-    width: 500px;
-    height: 200px;
-    border-radius: 5px;
-    align-self: center;
-    justify-self: center;
-    border-bottom: 5px solid $color-primary;
-  }
+//
+//.content {
+//  width: 1024px;
+//  margin: 32px auto 16px;
+//
+//  display: flex;
+//  flex-direction: column;
+//  gap: 16px;
+//
+//  h2 {
+//    align-self: center;
+//    font-size: 1.7rem;
+//    padding: 0 20px 10px;
+//  }
+//
+//  p {
+//    text-align: justify;
+//    font-size: 1.1rem;
+//  }
+//
+//  figure {
+//    display: flex;
+//    flex-direction: column;
+//  }
+//
+//  figcaption {
+//    align-self: flex-end;
+//    font-size: 1rem;
+//    font-style: italic;
+//    padding-top: 4px;
+//  }
+//}
+
+ol,
+li {
+  margin-left: 2em;
 }

@@ -14,10 +14,14 @@
     "@11ty/eleventy": "^1.0.0",
     "autoprefixer": "^10.4.4",
     "cssnano": "^5.1.7",
+    "gradientee": "^0.0.4",
+    "markdown-it-anchor": "^8.6.4",
+    "markdown-it-attrs": "^4.1.4",
     "postcss-cli": "^9.1.0",
     "sass": "^1.49.11"
   },
   "devDependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "prettier": "^2.6.2"
   }
 }

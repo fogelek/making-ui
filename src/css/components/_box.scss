@@ -1,0 +1,46 @@
+@import "../constants/palette";
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 90deg;
+}
+
+.box {
+  --border-angle: 90deg; /*  needed for firefox to have a valid output */
+  grid-row: 1;
+  grid-column: 1;
+  z-index: 2;
+  border-radius: 18px;
+  position: relative;
+  opacity: 0.8;
+  background: linear-gradient(
+    var(--border-angle),
+    $color-secondary,
+    $color-primary
+  );
+  box-shadow: -10px -10px 36px -10px #fff, 15px 15px 25px 0 #000;
+
+  &.animate {
+    transition: --border-angle 700ms;
+  }
+
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 10px;
+    background: #000;
+  }
+}
+
+article-box {
+  display: grid;
+
+  &:hover .box.animate {
+    --border-angle: 270deg;
+  }
+}
