@@ -9,3 +9,17 @@ $color-secondary-background: #{color.adjust($color-secondary, $lightness: -20%)}
 $color-primary-text: #a8ff60;
 $color-secondary-text: #96cbfe;
 $color-border-light: #6272a4;
+
+@mixin box-colors {
+  background: linear-gradient(
+                  var(--border-angle),
+                  $color-secondary,
+                  $color-primary
+  );
+  box-shadow: -10px -10px 36px -10px #fff, 15px 15px 25px 0 #000;
+}
+
+@mixin box-colors-reset {
+  background: inherit;
+  box-shadow: inherit;
+}

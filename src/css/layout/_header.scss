@@ -69,8 +69,12 @@ header {
   .github,
   .avatar,
   .avatar > img {
-    width: 2em;
-    height: 2em;
+    width: 3em;
+    height: 3em;
+  }
+
+  .github,
+  .avatar {
     transition: 0.3s transform ease;
 
     &:hover {

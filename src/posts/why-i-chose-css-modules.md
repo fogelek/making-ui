@@ -6,6 +6,7 @@ tags:
   - opinion
 title: Why I chose CSS Modules
 subtitle: (and why it may not be the best option for you)
+lead: Short, opinionated summary on why, for my personal React projects (as well as for small, greenfield work apps), I picked CSS modules. It also contains a list of reasons why it may not be a good idea for you, andd what other option you may want to consider.
 ---
 
 This is a short, opinionated summary on why, for my personal React projects (as well as for small, greenfield work apps), I picked CSS modules. It also contains a list of reasons why it may not be a good idea for you, andd what other option you may want to consider.

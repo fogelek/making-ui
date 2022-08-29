@@ -5,8 +5,10 @@ layout: layouts/layout.njk
 {%- for post in collections.post -%}
     <li>
         <a href="{{ post.url }}">
-            <article-box>
-              <h2>{{ post.data.title }}</h2><h3>{{ post.data.subtitle }}</h3>
+            <article-box animate>
+              <h2>{{ post.data.title }}</h2>
+              <!-- <h3>{{ post.data.subtitle }}</h3> -->
+              <span class="lead">{{ post.data.lead }}</span>
             </article-box>
         </a>
     </li>

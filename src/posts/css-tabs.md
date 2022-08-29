@@ -4,9 +4,10 @@ tags:
   - css
   - cookbook
 title: Pure CSS Tabs
+lead: A small, lightweight, static tab component to use on no-js pages (and not only)
 ---
 
-When creating a sample project for **React styling approaches** for the team presentation, I wanted to show all the versions in a neat and concise manner. I picked a **tabbed layout**, but I didn't really want to research how to use tab component from any additional library, and for sure I didn't want to spend time to code that in React. So I came up with a really quick solution on how to solve tabs in pure **HTML+SCSS**
+When creating a sample project for **React styling approaches** for the team presentation, I wanted to show all the versions in a neat and concise manner. I picked a **tabbed layout**, but I didn't really want to research how to use tab component from any additional library, and I wanted to spice things up a bit. So I came up with a really quick solution on how to solve tabs in pure **HTML+SCSS**
 
 ## Result
 
