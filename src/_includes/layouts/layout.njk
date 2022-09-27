@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Opinionated guide through web development and design">
+    <meta name="keywords" content="HTML, CSS, JavaScript, TypeScript, React, UI, WebDev">
+    <meta name="author" content="Michal Fogelman">
+    <meta name="viewport" content="width=device-width">
     <title>{{ metadata.title }}</title>
     <link rel="stylesheet" href="{{ '/css/reset.css' | url }}"/>
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}"/>
@@ -10,10 +14,10 @@
     {% endif %}
     <script type="text/javascript">
         if ('paintWorklet' in CSS){
-            CSS.paintWorklet.addModule("/js/gradientee-worklet.js");
+            CSS.paintWorklet.addModule("/js/gradientee-worklet.min.js");
         }
     </script>
-    <script type="text/javascript" src="/js/gradientee.js"></script>
+    <script type="text/javascript" src="/js/gradientee.min.js"></script>
 </head>
 <body>
     <div class="bg-container">
@@ -25,7 +29,39 @@
         {% include "partials/main.njk" %}
     {% endif %}
     <script>
-     class ArticleBox extends HTMLElement {
+        if (!("paintWorklet" in CSS)) {
+            // render canvas
+            window.addEventListener("resize", repaint);
+
+            var debounce = null;
+            function repaint() {
+                if (debounce) {
+                    clearTimeout(debounce);
+                    debounce = null;
+                }
+                debounce = setTimeout(() => {
+                    const canvas = document.querySelector(".bg-container canvas");
+                    canvas.width = document.documentElement.clientWidth;
+                    canvas.height = document.documentElement.clientHeight;
+                    const ctx = canvas.getContext("2d");
+                    gradientee(ctx, {
+                        width: canvas.clientWidth,
+                        height: canvas.clientHeight,
+                        colorFrom: "#0b0",
+                        colorTo: "#00b",
+                        boxSize: 60,
+                        seed: 3200,
+                        deflectionLevel: 20,
+                        colorRandomness: 0,
+                    });
+                    debounce = null;
+                }, 150);
+            }
+
+            repaint();
+        }
+
+        class ArticleBox extends HTMLElement {
         constructor() {
             super();
             const article = document.createElement('article');
@@ -45,6 +81,5 @@
 
     customElements.define('article-box', ArticleBox);
 </script>
-    <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
