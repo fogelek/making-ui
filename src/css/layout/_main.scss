@@ -15,9 +15,18 @@ main {
     min-height: 80vh;
     margin: 3em;
 
+    @media only screen and (orientation: portrait) {
+      width: 100vw;
+      margin: 3em 0;
+    }
+
     pre {
       @media (max-width: 1024px) {
         max-width: 65vw;
+      }
+
+      @media only screen and (orientation: portrait) {
+        max-width: 85vw;
       }
     }
   }
@@ -25,6 +34,10 @@ main {
   article {
     border-radius: 15px;
     margin: 15px;
+
+    @media only screen and (orientation: portrait) {
+      padding: 0;
+    }
 
     > * {
       margin: 2.5em 0;
@@ -62,6 +75,10 @@ main {
 
       .subtitle {
         font-size: 0.5em;
+
+        @media only screen and (orientation: portrait) {
+          line-height: 2rem;
+        }
       }
     }
 

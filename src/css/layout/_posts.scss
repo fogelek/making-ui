@@ -12,14 +12,19 @@ ul.posts {
   gap: 1rem;
   list-style-type: none;
   margin: 5rem 0;
+  //
+  //@media (max-width: 1024px) {
+  //  grid-template-columns: 500px;
+  //  gap: 3rem;
+  //}
 
-  @media (max-width: 1024px) {
-    grid-template-columns: 500px;
-    gap: 3rem;
+  @media only screen and (orientation: portrait) {
+    grid-template-columns: 90vw;
+    margin: 3rem 0;
   }
 
   li {
-    width: 450px;
+    width: min(450px, 90vw);
     min-height: 200px;
     height: 100%;
     margin: 0;

@@ -34,6 +34,15 @@ article-box {
     z-index: 5;
   }
 
+  .box {
+    &,
+    &::before {
+      @media only screen and (orientation: portrait) {
+        border-radius: 0;
+      }
+    }
+  }
+
   &:hover .box.animate {
     --border-angle: 270deg;
   }

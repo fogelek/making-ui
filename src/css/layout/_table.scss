@@ -20,3 +20,10 @@ tr {
     border-bottom: 1px solid $color-table-border;
   }
 }
+
+.table-wrapper {
+  @media only screen and (orientation: portrait) {
+    max-width: 85vw;
+    overflow-x: auto;
+  }
+}
