@@ -1,4 +1,4 @@
-@import "../constants/palette";
+@import "../common/palette";
 @import "../components/box-mixins";
 
 nav.main {
@@ -9,14 +9,20 @@ nav.main {
 ul.posts {
   display: grid;
   grid-template-columns: 500px 500px;
-  gap: 16px;
+  gap: 1rem;
   list-style-type: none;
-  margin-top: 5rem;
+  margin: 5rem 0;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 500px;
+    gap: 3rem;
+  }
 
   li {
-    width: 500px;
+    width: 450px;
     min-height: 200px;
     height: 100%;
+    margin: 0;
     border-radius: 5px;
     align-self: center;
     justify-self: center;
@@ -27,15 +33,22 @@ ul.posts {
     height: 100%;
 
     .box {
-      @include box-colors-reset;
-      @include box-border-size(5px);
+      //@include box-colors-reset;
+      @include box-border-size(0px);
+      @include box-colors;
 
-      border-radius: 14px;
-      transition: --border-angle 500ms, box-shadow 500ms, background 500ms;
+      border-radius: 15px;
+
+      &,
+      &::before {
+        transition-duration: 200ms;
+        transition-property: --border-angle, box-shadow, width, height, top,
+          left;
+      }
     }
 
     &:hover .box {
-      @include box-colors;
+      @include box-border-size(5px);
     }
   }
 

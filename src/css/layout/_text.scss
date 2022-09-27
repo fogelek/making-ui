@@ -1,5 +1,5 @@
-@import "../constants/palette";
-@import "../constants/text";
+@import "../common/palette";
+@import "../common/text";
 
 body {
   line-height: 2em;
@@ -26,6 +26,14 @@ strong {
   font-weight: 600;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @include font-header;
+}
+
 article a {
   &,
   &:visited,
@@ -40,8 +48,4 @@ article a {
 li {
   line-height: 1.75em;
   font-size: 1.05em;
-}
-
-header,
-article h1 {
 }

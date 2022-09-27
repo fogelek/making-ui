@@ -1,5 +1,5 @@
 @use "sass:color";
-@import "../constants/palette";
+@import "../common/palette";
 
 body {
   background: $color-background;

@@ -1,10 +1,9 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const markdownIt = require("markdown-it");
 const markdownAttributes = require("markdown-it-attrs");
-const markdownAnchor = require('markdown-it-anchor');
+const markdownAnchor = require("markdown-it-anchor");
 
 module.exports = function (eleventyConfig) {
-
   let options = {
     html: true,
     breaks: true,
@@ -14,12 +13,13 @@ module.exports = function (eleventyConfig) {
   let markdownLib = markdownIt(options)
     .use(markdownAttributes)
     .use(markdownAnchor);
-  
+
   eleventyConfig.setLibrary("md", markdownLib);
 
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy({
-    "node_modules/gradientee/dist/*.min.js": "js/",
+    "node_modules/gradientee/dist/*.js": "js/",
+    "src/js/*.js": "js/",
   });
   eleventyConfig.addPlugin(syntaxHighlight);
 

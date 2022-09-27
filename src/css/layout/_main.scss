@@ -1,16 +1,25 @@
-@import "../constants/text";
-@import "../constants/palette";
+@import "../common/text";
+@import "../common/palette";
 
 main {
   flex-grow: 10;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   article-box {
     display: grid;
+    width: min(80vw, 1280px);
     max-width: 1280px;
     min-height: 80vh;
     margin: 3em;
+
+    pre {
+      @media (max-width: 1024px) {
+        max-width: 65vw;
+      }
+    }
   }
 
   article {
@@ -26,7 +35,8 @@ main {
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.5em;
+      line-height: 3rem;
       display: flex;
       flex-direction: column;
       width: fit-content;
@@ -40,7 +50,7 @@ main {
       &::after {
         content: "";
         width: calc(100% + 2em);
-        height: 0.2em;
+        height: 0.125em;
         background: linear-gradient(
           90deg,
           $color-primary-background,

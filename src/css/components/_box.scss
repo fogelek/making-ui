@@ -1,4 +1,4 @@
-@import "../constants/palette";
+@import "../common/palette";
 @import "./box-mixins";
 
 @property --border-angle {
@@ -22,7 +22,7 @@
     transition: --border-angle 700ms;
   }
 
-  @include box-border-size(10px);
+  @include box-border-size(0px);
 }
 
 article-box {

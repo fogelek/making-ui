@@ -6,24 +6,23 @@ tags:
   - opinion
 title: Why I chose CSS Modules
 subtitle: (and why it may not be the best option for you)
-lead: Short, opinionated summary on why, for my personal React projects (as well as for small, greenfield work apps), I picked CSS modules. It also contains a list of reasons why it may not be a good idea for you, andd what other option you may want to consider.
+lead: Short, opinionated summary on why, for my personal React projects (as well as for small, greenfield work apps), I picked CSS modules. It also contains a list of reasons why it may not be a good idea for you, and what other option you may want to consider.
 ---
 
-This is a short, opinionated summary on why, for my personal React projects (as well as for small, greenfield work apps), I picked CSS modules. It also contains a list of reasons why it may not be a good idea for you, andd what other option you may want to consider.
+This is a short, opinionated summary on why, for my personal React projects (as well as for small, greenfield work apps), I picked CSS modules. It also contains a list of reasons why it may not be a good idea for you, and what other option you may want to consider.
 
 **Assumption: anywhere I use wording 'CSS', it implies possibility of using pre-processors, like LESS or SCSS.**
 
 ## TL;DR:
 
-|Approach|Vanilla CSS|CSS Modules|Styled Components|CSS-IN-JS|
-|--------|--------------|--------------|-----------------|---------|
-|Who is it for|Small, one person projects|Teams with good understanding of CSS|Projects with a lot of reusable components|Big teams with wide variety of CSS expertise|
-|CSS-like Syntax|✅|✅|✅|❌|
-|Styling based on specificity|✅|✅|❌|❌|
-|Encapsulation (solves naming conflicts)|❌|✅|✅|✅|
-|Atomic CSS (solves specificity issues)|❌|❌|❌|✅|
-|Dynamic styling|❌|❌|✅|✅|
-
+| Approach                                | Vanilla CSS                | CSS Modules                          | Styled Components                          | CSS-IN-JS                                    |
+| --------------------------------------- | -------------------------- | ------------------------------------ | ------------------------------------------ | -------------------------------------------- |
+| Who is it for                           | Small, one person projects | Teams with good understanding of CSS | Projects with a lot of reusable components | Big teams with wide variety of CSS expertise |
+| CSS-like Syntax                         | ✅                         | ✅                                   | ✅                                         | ❌                                           |
+| Styling based on specificity            | ✅                         | ✅                                   | ❌                                         | ❌                                           |
+| Encapsulation (solves naming conflicts) | ❌                         | ✅                                   | ✅                                         | ✅                                           |
+| Atomic CSS (solves specificity issues)  | ❌                         | ❌                                   | ❌                                         | ✅                                           |
+| Dynamic styling                         | ❌                         | ❌                                   | ✅                                         | ✅                                           |
 
 ### Vanilla CSS
 
@@ -98,7 +97,7 @@ Of course, if you need, you can mix these approaches. Use Griffel to style your 
 
 As with all other frameworks, libraries and approaches, I believe all presented above have their place in the software development world. I did not show you the **only right path**. What I did, is I have presented a short overview of what are positives, negatives and caveats of these 4 approaches. Choosing one over other does boil down to a personal preference, team agreement or project requirements, not necessarily in that order.
 
-I chose vanilla SCSS always when I need to create a static page, a virtual resume and other slim-UI apps, because I don't need advanced features and I value a simplicity of a non-configuration approach. For more robust interfaces, I pick (S)CSS Modules to get an safety edge of encapsulation, without forfeiting the 
+I chose vanilla SCSS always when I need to create a static page, a virtual resume and other slim-UI apps, because I don't need advanced features and I value a simplicity of a non-configuration approach. For more robust interfaces, I pick (S)CSS Modules to get an safety edge of encapsulation, without forfeiting the
 familiarity of CSS code.
 
 I have also skipped another popular approach of [Tailwind CSS](https://tailwindcss.com) - purely because I am not familiar with it, and it was never a considered option within my team when it came to a styling framework selection.

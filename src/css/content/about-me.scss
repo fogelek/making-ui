@@ -1,0 +1,27 @@
+main article-box {
+  min-height: unset;
+  height: fit-content;
+
+  .about-me-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 3rem 5rem;
+    column-gap: 5rem;
+
+    img {
+      border-radius: 10px;
+    }
+  }
+}
+
+.about-me-details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  h2 {
+    font-size: 1.7rem;
+    margin: 0;
+  }
+}
