@@ -30,6 +30,10 @@ body {
     --gradientee-deflection-level: 20;
     --gradientee-color-randomness: 0;
 
+    @media only screen and (orientation: portrait) {
+      --gradientee-box-size: 20;
+    }
+
     > canvas {
       z-index: -1;
 

@@ -44,12 +44,19 @@
                     canvas.width = document.documentElement.clientWidth;
                     canvas.height = document.documentElement.clientHeight;
                     const ctx = canvas.getContext("2d");
-                    gradientee(ctx, {
-                        width: canvas.clientWidth,
-                        height: canvas.clientHeight,
+                    const params =  window.matchMedia("only screen and (orientation: portrait)") ? {
+                        colorFrom: "#27bb27",
+                        colorTo: "#2727bb",
+                        boxSize: 35
+                    } : {
                         colorFrom: "#0b0",
                         colorTo: "#00b",
                         boxSize: 60,
+                    }
+                    gradientee(ctx, {
+                        width: canvas.clientWidth,
+                        height: canvas.clientHeight,
+                        ...params,
                         seed: 3200,
                         deflectionLevel: 20,
                         colorRandomness: 0,
