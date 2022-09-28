@@ -8,23 +8,20 @@ nav.main {
 
 ul.posts {
   display: grid;
-  grid-template-columns: 500px 500px;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
   list-style-type: none;
-  margin: 5rem 0;
-  //
-  //@media (max-width: 1024px) {
-  //  grid-template-columns: 500px;
-  //  gap: 3rem;
-  //}
+  margin: 70px;
+  width: 1024px;
 
   @media only screen and (orientation: portrait) {
-    grid-template-columns: 90vw;
-    margin: 3rem 0;
+    grid-template-columns: 1fr;
+    margin: 50px;
+    width: min(500px, calc(100vw - 100px));
   }
 
   li {
-    width: min(450px, 90vw);
+    width: 100%;
     min-height: 200px;
     height: 100%;
     margin: 0;
@@ -65,12 +62,13 @@ ul.posts {
     h2 {
       &::after {
         content: "";
-        width: calc(100% + 2em);
+        display: block;
+        width: 40%;
         height: 0.125em;
         background: linear-gradient(
           90deg,
-          $color-primary-background,
-          $color-secondary-background
+          $color-primary,
+          $color-middle
         );
         transform: skewX(-45deg);
         filter: brightness(1.3);

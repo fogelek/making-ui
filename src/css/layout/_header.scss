@@ -7,17 +7,16 @@ header {
   height: $header-size;
   z-index: 10;
   box-shadow: 0 3px 10px 0 var(--color-background);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "empty header socials";
-  justify-items: center;
-  align-content: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: $color-foreground;
   background: #000c;
+  padding: 0 calc(50% - 512px);
 
-  @media only screen and (max-device-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "header socials";
+  
+  @media screen and (max-width: 500px) {
+    justify-content: center;
   }
 
   @include font-header;
@@ -27,9 +26,14 @@ header {
     grid-area: header;
     font-size: 2.5em;
     font-weight: 400;
+    margin-left: 50px;
 
     @media (max-width: 1000px) {
       font-size: 2em;
+    }
+
+    @media screen and (max-width: 500px) {
+      margin-left: 0;
     }
 
     &,
@@ -53,46 +57,50 @@ header {
       line-height: 2rem;
     }
   }
+}
 
-  .socials {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    height: 100%;
-    align-items: center;
-    grid-area: socials;
 
-    @media (min-width: 1000px) {
-      margin-right: 50px;
-    }
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  height: 100%;
+  align-items: center;
+  margin-right: 50px;
+
+
+.github,
+.instagram {
+  > svg {
+    fill: $color-foreground;
   }
+}
 
-  .github,
-  .instagram {
-    > svg {
-      fill: $color-foreground;
-    }
+.github,
+.instagram,
+.avatar,
+.avatar > img {
+  width: 2.25em;
+  height: 2.25em;
+}
+
+.github,
+.instagram,
+.avatar {
+  transition: 0.3s transform ease;
+
+  &:hover {
+    transform: scale(1.25);
   }
+}
 
-  .github,
-  .instagram,
-  .avatar,
-  .avatar > img {
-    width: 2.25em;
-    height: 2.25em;
-  }
+.avatar > img {
+  border-radius: 50%;
+}
+}
 
-  .github,
-  .instagram,
-  .avatar {
-    transition: 0.3s transform ease;
-
-    &:hover {
-      transform: scale(1.25);
-    }
-  }
-
-  .avatar > img {
-    border-radius: 50%;
+header .socials {
+  @media screen and (max-width: 500px) {
+    display: none;
   }
 }

@@ -66,8 +66,8 @@ main {
         height: 0.125em;
         background: linear-gradient(
           90deg,
-          $color-primary-background,
-          $color-secondary-background
+          $color-primary,
+          $color-secondary
         );
         transform: skewX(-45deg);
         filter: brightness(1.3);

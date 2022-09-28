@@ -3,19 +3,18 @@
 
 body {
   background: $color-background;
-  background: linear-gradient(
-    90deg,
-    $color-primary-background,
-    $color-secondary-background
-  );
+  background: linear-gradient(90deg,
+      $color-primary-background,
+      $color-secondary-background );
   color: $color-foreground;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 
   .bg-container {
+
     &,
-    > canvas {
+    >canvas {
       width: 100vw;
       height: 100vh;
       position: fixed;
@@ -30,11 +29,17 @@ body {
     --gradientee-deflection-level: 20;
     --gradientee-color-randomness: 0;
 
-    @media only screen and (orientation: portrait) {
-      --gradientee-box-size: 20;
+    @media only screen and (orientation: portrait) and (max-width: 1000px) {
+      --gradientee-box-size: 40;
     }
 
-    > canvas {
+    @media only screen and (orientation: portrait) and (max-width: 700px) {
+      --gradientee-color-from: #{$color-primary-background-light};
+      --gradientee-color-to: #{$color-secondary-background-light};
+      --gradientee-box-size: 30;
+    }
+
+    >canvas {
       z-index: -1;
 
       @supports (background: paint(id)) {
@@ -48,39 +53,6 @@ svg.defs {
   width: 0;
   height: 0;
 }
-
-//
-//.content {
-//  width: 1024px;
-//  margin: 32px auto 16px;
-//
-//  display: flex;
-//  flex-direction: column;
-//  gap: 16px;
-//
-//  h2 {
-//    align-self: center;
-//    font-size: 1.7rem;
-//    padding: 0 20px 10px;
-//  }
-//
-//  p {
-//    text-align: justify;
-//    font-size: 1.1rem;
-//  }
-//
-//  figure {
-//    display: flex;
-//    flex-direction: column;
-//  }
-//
-//  figcaption {
-//    align-self: flex-end;
-//    font-size: 1rem;
-//    font-style: italic;
-//    padding-top: 4px;
-//  }
-//}
 
 ol,
 li {
