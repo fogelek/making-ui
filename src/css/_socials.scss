@@ -1,0 +1,38 @@
+@import "variables/palette";
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+  height: 100%;
+
+  .github,
+  .instagram {
+    > svg {
+      fill: $color-foreground;
+    }
+  }
+
+  .github,
+  .instagram,
+  .avatar,
+  .avatar > img {
+    width: 2.25em;
+    height: 2.25em;
+  }
+
+  .github,
+  .instagram,
+  .avatar {
+    transition: 0.3s transform ease;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+
+  .avatar > img {
+    border-radius: 50%;
+  }
+}

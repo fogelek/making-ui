@@ -1,0 +1,45 @@
+@import "variables/palette";
+
+article-box {
+  display: grid;
+
+  article {
+    z-index: 5;
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .box {
+    position: relative;
+    z-index: 2;
+    grid-row: 1;
+    grid-column: 1;
+    border-radius: 18px;
+    background: linear-gradient(90deg, $color-secondary, $color-primary);
+    box-shadow: 3px 3px 15px 3px $color-black;
+    opacity: 0.8;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background: $color-black;
+      transition: 300ms ease;
+    }
+  }
+
+  @media screen and (min-width: 650px) {
+    &[animate]:hover {
+      .box::before {
+        top: 0.5rem;
+        left: 0.5rem;
+        width: calc(100% - 1rem);
+        height: calc(100% - 1rem);
+      }
+    }
+  }
+}
