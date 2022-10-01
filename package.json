@@ -11,7 +11,7 @@
     "build": "npm run css:prod && npm run eleventy:build"
   },
   "dependencies": {
-    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "autoprefixer": "^10.4.4",
     "cssnano": "^5.1.7",
@@ -21,11 +21,12 @@
     "markdown-it-attrs": "^4.1.4",
     "postcss-cli": "^9.1.0",
     "sass": "^1.49.11",
+    "terser": "^5.15.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2",
     "stylelint": "^14.13.0",
     "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-order": "^5.0.0"
-  },
-  "devDependencies": {
-    "prettier": "^2.6.2"
   }
 }

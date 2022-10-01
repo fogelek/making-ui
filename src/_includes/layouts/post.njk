@@ -6,5 +6,8 @@ layout: layouts/layout.njk
         <span class="title">{{ title }}</span>
         <span class="subtitle">{{ subtitle }}</span>
     </h1>
+{#    {% if date %}#}
+{#        <span class="date-created">{{ date | dateFilter }}</span>#}
+{#    {% endif %}#}
     {{ content | safe }}
 </article-box>

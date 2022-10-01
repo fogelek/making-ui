@@ -30,70 +30,19 @@
     <footer>
         {% include "partials/topmenu.njk" %}
     </footer>
+    <div id="go-to-top" class="up-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-chevron-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+        </svg>
+    </div>
     <script>
-        if (!("paintWorklet" in CSS)) {
-            // render canvas
-            window.addEventListener("resize", repaint);
-
-            var debounce = null;
-            function repaint() {
-                if (debounce) {
-                    clearTimeout(debounce);
-                    debounce = null;
-                }
-                debounce = setTimeout(() => {
-                    const canvas = document.querySelector(".bg-container canvas");
-                    canvas.width = document.documentElement.clientWidth;
-                    canvas.height = document.documentElement.clientHeight;
-                    const ctx = canvas.getContext("2d");
-                    const midTile =  window.matchMedia("only screen and (orientation: portrait) and (max-width: 1000px)");
-                    const smallTile = window.matchMedia("only screen and (orientation: portrait) and (max-width: 700px)");
-                    const boxSize = smallTile ? 30 : midTile ? 40 : 60;
-                    gradientee(ctx, {
-                        width: canvas.clientWidth,
-                        height: canvas.clientHeight,
-                        colorFrom: "#0b0",
-                        colorTo: "#00b",
-                        boxSize: boxSize,
-                        seed: 3200,
-                        deflectionLevel: 20,
-                        colorRandomness: 0,
-                    });
-                    debounce = null;
-                }, 150);
-            }
-
-            repaint();
-        }
-
-        class ArticleBox extends HTMLElement {
-        constructor() {
-            super();
-            const article = document.createElement('article');
-            while (this.children.length > 0) {
-                article.appendChild(this.children[0]);
-            }
-
-            this.append(article);
-            const box = document.createElement('div');
-            box.classList.add('box');
-            if (this.hasAttribute('animate')) {
-                box.classList.add('animate');
-            }
-            this.append(box);
-        }
-    }
-
-    customElements.define('article-box', ArticleBox);
-    tables = document.getElementsByTagName('table');
-    if (tables && tables.length) {
-        for (const table of tables) {
-            const wrapper = document.createElement('div');
-            wrapper.classList.add('table-wrapper');
-            table.parentNode.insertBefore(wrapper, table)
-            wrapper.appendChild(table)
-        }
-    }
-</script>
+    {% set js %}
+        {% include "src/js/article-box.js" %}
+        {% include "src/js/background.js" %}
+        {% include "src/js/table-wrapper.js" %}
+        {% include "src/js/go-to-top.js" %}
+    {% endset %}
+    {{ js | jsmin | safe }}
+    </script>
 </body>
 </html>

@@ -28,6 +28,7 @@ main {
     }
 
     h1 {
+      width: -moz-fit-content;
       width: fit-content;
 
       span {
@@ -42,8 +43,10 @@ main {
       &::after {
         @include underline(100%, $color-primary, $color-secondary);
       }
+    }
 
-      // max-width: calc(100% - 2em);
+    .date-created {
+      font-size: 0.9rem;
     }
 
     h2,

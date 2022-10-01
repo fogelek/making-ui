@@ -4,7 +4,7 @@ layout: layouts/layout.njk
 <ul class="posts">
 {%- for post in collections.post -%}
     <li>
-        <a href="{{ post.url }}">
+        <a href="{{ post.url }}" tabindex="0">
             <article-box animate>
               <h2>{{ post.data.title }}</h2>
               <span class="lead">{{ post.data.lead }}</span>
