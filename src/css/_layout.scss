@@ -51,10 +51,9 @@ main {
 
 .up-arrow {
   position: fixed;
-  right: 1rem;
+  right: -3rem;
   bottom: 1rem;
   z-index: 10;
-  display: none;
   width: 1.5rem;
   height: 1.5rem;
   padding: 0.5rem;
@@ -65,7 +64,7 @@ main {
   transition: 300ms ease;
 
   &.visible {
-    display: block;
+    right: 1rem;
   }
 
   &:hover {
