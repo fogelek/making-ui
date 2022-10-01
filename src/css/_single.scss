@@ -1,0 +1,94 @@
+@import "variables/palette";
+@import "variables/components";
+
+main {
+  article {
+    padding: 1.5rem;
+
+    @media screen and (max-width: 700px) {
+      padding: 1rem;
+    }
+
+    @media (max-width: 512px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    > * {
+      margin: 0 0 1rem;
+
+      @media (max-width: 512px) {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h1 {
+      width: fit-content;
+
+      span {
+        display: block;
+      }
+
+      .subtitle {
+        font-size: 0.5em;
+        line-height: 1.5em;
+      }
+
+      &::after {
+        @include underline(100%, $color-primary, $color-secondary);
+      }
+
+      // max-width: calc(100% - 2em);
+    }
+
+    h2,
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    @media (max-width: 512px) {
+      pre,
+      .table-wrapper {
+        // sketchy weird number that kinda looks like it works; find better solution
+        width: 96%;
+        margin-right: 0;
+        margin-left: 0;
+        border-radius: 0;
+      }
+
+      pre,
+      td:first-of-type,
+      th:first-of-type {
+        border-left: 0;
+      }
+
+      pre,
+      td:last-of-type,
+      th:last-of-type {
+        border-right: 0;
+      }
+    }
+  }
+
+  a {
+    &,
+    &:visited,
+    &:hover {
+      border-bottom: 1px solid;
+      color: $color-primary-text;
+      font-size: 1.05rem;
+      line-height: 1.1rem;
+    }
+  }
+
+  li {
+    font-size: 1.05em;
+    line-height: 1.75em;
+  }
+}

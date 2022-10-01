@@ -1,0 +1,48 @@
+main article-box {
+  height: fit-content;
+  min-height: unset;
+
+  article {
+    display: grid;
+    grid-template:
+      "header details" 6rem
+      "photo details" 1fr
+      / 1fr 1fr;
+
+    @media (max-width: 1200px) {
+      grid-template-areas:
+        "header"
+        "photo"
+        "details";
+      grid-template-columns: 1fr;
+    }
+
+    h1 {
+      grid-area: header;
+      justify-self: center;
+    }
+
+    img {
+      grid-area: photo;
+      justify-self: center;
+      max-width: 50vw;
+      border-radius: 10px;
+
+      @media (max-width: 1200px) {
+        margin: 0 0 2rem;
+      }
+    }
+  }
+}
+
+.about-me-details {
+  display: flex;
+  flex-direction: column;
+  grid-area: details;
+  row-gap: 2rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.7rem;
+  }
+}

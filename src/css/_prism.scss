@@ -4,7 +4,10 @@
  * @author Joe Gibson (@gibsjose)
  */
 
-@import "../common/palette";
+@import "variables/palette";
+
+// stylelint-disable
+// vendor file
 
 code,
 pre {

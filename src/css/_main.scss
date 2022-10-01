@@ -39,4 +39,8 @@ ul.posts {
       @include underline(40%, $color-primary, $color-middle);
     }
   }
+
+  li {
+    margin: 0;
+  }
 }

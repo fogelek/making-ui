@@ -7,6 +7,7 @@ article-box {
     z-index: 5;
     grid-row: 1;
     grid-column: 1;
+    overflow: hidden;
   }
 
   .box {
