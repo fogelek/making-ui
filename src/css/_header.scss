@@ -1,0 +1,42 @@
+@import "variables/palette";
+@import "variables/components";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: min(7rem, 30vw);
+  padding: 0 max(calc(50% - 512px), 25px);
+  background: $color-background-smoke;
+
+  @media screen and (max-width: 700px) {
+    justify-content: center;
+
+    .socials {
+      display: none;
+    }
+  }
+
+  span {
+    display: block;
+    text-align: center;
+  }
+
+  h1,
+  h2 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  .title::after {
+    @include underline(100%, $color-primary, $color-secondary);
+  }
+
+  .subtitle {
+    font-size: 0.5em;
+    line-height: 1em;
+  }
+}

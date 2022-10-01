@@ -1,0 +1,48 @@
+nav.main,
+main {
+  --width: 1024px;
+  --margin: 3rem;
+
+  width: min(var(--width), calc(100% - (2 * var(--margin))));
+  margin: var(--margin) auto;
+
+  @media screen and (max-width: 700px) {
+    --margin: 2rem;
+  }
+
+  @media screen and (max-width: 512px) {
+    --margin: 1rem;
+  }
+}
+
+nav.main {
+  @media screen and (max-width: 1200px) {
+    --margin: 1.5rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    --width: 512px;
+    --margin: 3rem;
+  }
+}
+
+main {
+  @media screen and (max-width: 700px) {
+    --margin-filled: min(1rem, 5vw);
+
+    width: calc(100% - (2 * var(--margin-filled)));
+    margin: var(--margin) var(--margin-filled);
+  }
+
+  @media screen and (max-width: 512px) {
+    width: 100%;
+    margin: 2rem 0;
+
+    .box {
+      &,
+      &::before {
+        border-radius: 0;
+      }
+    }
+  }
+}

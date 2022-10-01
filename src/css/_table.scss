@@ -1,11 +1,11 @@
-@import "../common/palette";
+@import "variables/palette";
 
 $color-table-border: $color-border-light;
 
 td,
 th {
-  padding: 0.3em;
   vertical-align: middle;
+  padding: 0.3rem;
   border-left: 1px solid $color-table-border;
 
   &:last-of-type {
@@ -22,8 +22,5 @@ tr {
 }
 
 .table-wrapper {
-  @media only screen and (orientation: portrait) {
-    max-width: 85vw;
-    overflow-x: auto;
-  }
+  overflow-x: auto;
 }

@@ -1,0 +1,41 @@
+@import "variables/palette";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: $color-background;
+  background: linear-gradient(
+    90deg,
+    $color-primary-background,
+    $color-secondary-background
+  );
+  color: $color-foreground;
+
+  .bg-container {
+    --gradientee-color-from: #{$color-primary-background};
+    --gradientee-color-to: #{$color-secondary-background};
+    --gradientee-box-size: 60;
+    --gradientee-seed: 3200;
+    --gradientee-deflection-level: 20;
+    --gradientee-color-randomness: 0;
+
+    z-index: -2;
+    background-image: paint(gradientee);
+
+    &,
+    > canvas {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    > canvas {
+      z-index: -1;
+
+      @supports (background: paint(id)) {
+        display: none;
+      }
+    }
+  }
+}

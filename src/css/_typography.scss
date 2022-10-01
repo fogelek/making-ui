@@ -1,0 +1,53 @@
+@import "variables/palette";
+
+body {
+  color: $color-foreground;
+  font-size: 1rem;
+
+  // prettier-ignore
+  font-family:
+    Avernir,
+    "Segoe UI",
+    Roboto,
+    -apple-system,
+    BlinkMacSystemFont,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    system-ui;
+  line-height: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif, system-ui;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+thead,
+strong {
+  font-weight: 600;
+}
+
+ol,
+li {
+  margin-left: 2em;
+}
