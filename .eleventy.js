@@ -28,7 +28,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy({
     "node_modules/gradientee/dist/*.js": "js/",
-    // "src/js/*.js": "js/",
   });
   eleventyConfig.addPlugin(syntaxHighlight);
 
