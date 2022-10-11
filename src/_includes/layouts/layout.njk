@@ -7,6 +7,20 @@
     <meta name="author" content="Michal Fogelman">
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Eleventy">
+    {% if title %}
+    <meta property='og:title' content='Making UI - {{ title }}'/>
+    <meta property='og:image' content='https://making-ui.dev/images/thumbnails/{{ title | slug }}.png'/>
+    <meta property='og:description' content='{{ lead }}'/>
+    <meta property='og:url' content='https://making-ui.dev/{{ title | slug }}'/>
+    {%  else %}
+    <meta property='og:title' content='Making UI'/>
+    <meta property='og:image' content='https://making-ui.dev/images/thumbnails/index.png'/>
+    <meta property='og:description' content='Opinionated guide through web development and design'/>
+    <meta property='og:url' content='https://making-ui.dev/'/>
+    {%  endif %}
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='627' />
+    <meta property="og:type" content="website" />
     <title>{{ metadata.title }}</title>
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}"/>
     {% if stylesheet %}

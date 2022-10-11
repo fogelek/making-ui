@@ -1,0 +1,62 @@
+---
+permalink: "./thumbnails/thumbnail.html"
+permalinkBypassOutputDir: true
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ meta.siteName }}</title>
+  {% set css %}
+        {% include "thumbnails/style.css" %}
+    {% endset %}
+    {% set js %}
+        {% include "node_modules/gradientee/dist/gradientee.min.js" %}
+    {% endset %}
+    <script type="text/javascript">
+        {{ js | safe }}
+    </script>
+     <style>
+         {{ css | safe }} 
+     </style>
+</head>
+<body>
+        <div class="bg-container">
+        <canvas></canvas>
+    </div>
+    <header>
+        <a href="/">
+        <h2>
+            <span class="title">{{ metadata.title }}</span>
+            <span class="subtitle">{{ metadata.subtitle }}</span>
+        </h2>
+    </a>
+    </header>
+    <main>
+        <article-box>
+            <article>
+        <h1 data-title>Why I chose CSS Modules</h1>
+    </article>
+    <div class="box"></div>
+    </article-box>
+    </main>
+    <script>
+    const canvas = document.querySelector(".bg-container canvas");
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = document.documentElement.clientHeight;
+      const ctx = canvas.getContext("2d");
+      gradientee(ctx, {
+        width: canvas.clientWidth,
+        height: canvas.clientHeight,
+        colorFrom: "#0b0",
+        colorTo: "#00b",
+        boxSize: 60,
+        seed: 3200,
+        deflectionLevel: 20,
+        colorRandomness: 0,
+      });
+    </script>
+</body>
+</html>

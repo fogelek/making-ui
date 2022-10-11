@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "sass:dev": "sass src/css:dist/css --watch",
-    "sass:prod": "sass src/css:dist/css --no-source-map",
+    "sass:dev": "sass src/css/style.scss:dist/css/style.css src/css/content:dist/css/content src/css/thumbnail.scss:thumbnails/style.css --watch",
+    "sass:prod": "sass src/css/style.scss:dist/css/style.css src/css/content:dist/css/content src/css/thumbnail.scss:thumbnails/style.css --no-source-map",
     "postcss:prod": "postcss --use autoprefixer cssnano --no-map --replace dist/css/*.css",
     "css:dev": "npm run sass:dev",
     "css:prod": "npm run sass:prod & npm run postcss:prod",
@@ -9,11 +9,13 @@
     "eleventy:serve": "eleventy --serve",
     "eleventy:build": "eleventy",
     "start": "npm run css:dev & npm run eleventy:serve",
-    "build": "npm run css:prod && npm run eleventy:build && npm run js:prod"
+    "build": "npm run css:prod && npm run eleventy:build && npm run js:prod && npm run social-images",
+    "social-images": "eleventy-social-images --siteName 'Making UI' --outputDir dist --dataFile thumbnails/pages.json --imageDir images/thumbnails --templatePath thumbnails/thumbnail.html --width 1200 --height 627"
   },
   "dependencies": {
     "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
+    "@11tyrocks/eleventy-plugin-social-images": "^0.4.1",
     "autoprefixer": "^10.4.4",
     "cssnano": "^5.1.7",
     "gradientee": "^0.0.4",
