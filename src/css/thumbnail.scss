@@ -1,0 +1,42 @@
+@import "reset";
+@import "background";
+@import "typography";
+@import "header";
+@import "box";
+@import "layout";
+@import "single";
+
+header {
+    justify-content: center;
+    height: 10rem;
+
+    h2 {
+        font-size: 4rem;
+        margin-top: 1rem;
+    }
+
+    .title::after {
+        margin-top: 0.8rem;
+        height: 0.3rem;
+    }
+
+    .socials {
+      display: none;
+    }
+}
+
+main {
+    margin-top: 4rem;
+
+    article {
+        > h1,
+        > *:last-child {
+        margin: 5rem auto;
+        font-size: 4.5rem;
+    }
+    h1::after {
+        margin-top: 0.8rem;
+        height: 0.3rem;
+    }
+}
+}

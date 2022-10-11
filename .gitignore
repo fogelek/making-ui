@@ -1,5 +1,6 @@
 node_modules/
 dist/
+thumbnails/
 .idea/
 .code/
 
