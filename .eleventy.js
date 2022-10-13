@@ -3,6 +3,7 @@ const markdownIt = require("markdown-it");
 const markdownAttributes = require("markdown-it-attrs");
 const markdownAnchor = require("markdown-it-anchor");
 const socialImages = require("@11tyrocks/eleventy-plugin-social-images");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 const { minify } = require("terser");
 
 module.exports = function (eleventyConfig) {
@@ -32,6 +33,7 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(socialImages);
+  eleventyConfig.addPlugin(pluginRss);
 
   eleventyConfig.addNunjucksAsyncFilter(
     "jsmin",
