@@ -1,4 +1,10 @@
 {
   "title": "Making UI",
-  "subtitle": "One style at a time"
+  "subtitle": "One style at a time",
+  "language": "en",
+  "url": "https://making-ui.dev/",
+  "author": {
+    "name": "Michal Fogelman",
+    "url": "https://making-ui.dev/about-me"
+  }
 }
