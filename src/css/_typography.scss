@@ -1,6 +1,7 @@
 @import "variables/palette";
 
-body {
+body,
+button {
   color: $color-foreground;
   font-size: 1rem;
 

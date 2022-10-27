@@ -6,6 +6,7 @@
     "css:dev": "npm run sass:dev",
     "css:prod": "npm run sass:prod & npm run postcss:prod",
     "js:prod": "terser src/js/* --compress -o dist/js/main.min.js",
+    "js:dev": "terser src/js/* --source-map --watch -o dist/js/main.js",
     "eleventy:serve": "eleventy --serve",
     "eleventy:build": "eleventy",
     "start": "npm run css:dev & npm run eleventy:serve",

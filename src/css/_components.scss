@@ -1,0 +1,28 @@
+@use "sass:color";
+@import "variables/palette";
+
+button {
+  padding: 0.25rem 1.5rem;
+  border: 1px solid $color-border-light;
+  border-radius: 0.5rem;
+  background: $color-background;
+  color: $color-foreground;
+  cursor: pointer;
+  transition: 300ms ease;
+
+  &:hover {
+    box-shadow: 0 0 0 3px $color-border-light inset;
+    outline: none;
+  }
+
+  &.primary {
+    border-color: $color-primary-background-light;
+    background: color.adjust($color-primary, $lightness: -30%);
+    box-shadow: none;
+
+    &:hover {
+      background: $color-primary-background-light;
+      box-shadow: none;
+    }
+  }
+}
