@@ -1,6 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRT45XSYFR"></script>
+    <script>
+        cookieConsentName = "makingui-consent";
+        function execCookies() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-ZRT45XSYFR',  {'anonymize_ip': true});
+        }
+        if (window.localStorage.getItem(cookieConsentName) === '1') {
+            execCookies();
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="description" content="Opinionated guide through web development and design">
     <meta name="keywords" content="HTML, CSS, JavaScript, TypeScript, React, UI, WebDev">
@@ -43,12 +59,31 @@
         {% include "partials/main.njk" %}
     {% endif %}
     <footer>
+        <a href="/" class="root-link">
+            <h3>Making UI</h3>
+        </a>
         {% include "partials/topmenu.njk" %}
+        <a href="#" class="reset-cookie-consent" onclick="cookieConsent(null)">Reset cookie settings</a>
     </footer>
     <div id="go-to-top" class="up-arrow">
         <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-chevron-up" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
         </svg>
+    </div>
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="content">
+            <div class="text">
+                <h3>This site uses cookies</h3>
+                <span>
+                    In order to gather statistical data, this page uses cookies<br/>
+                    You can change your preferences here
+                </span>
+            </div>
+            <div class="actions">
+                <button onclick="cookieConsent(0)">Reject</button>
+                <button onclick="cookieConsent(1)" class="primary">Accept</button>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="/js/main.min.js"></script>
 </body>

@@ -1,22 +1,33 @@
 @import "variables/palette";
+@import "variables/components";
 
 footer {
-  &,
-  .socials {
-    display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  margin-top: auto;
+  padding: 0 max(var(--margin), calc(50% - 512px)) 0.5rem;
+  background: $color-background-smoke;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    height: 6rem;
+
+    .root-link {
+      display: none;
+    }
   }
 
-  @media screen and (max-width: 700px) {
-    &,
-    .socials {
-      display: flex;
-    }
+  .root-link h3 {
+    font-size: 1.7rem;
 
-    justify-content: center;
-    align-items: center;
-    height: 70px;
-    margin-top: auto;
-    padding: 0 calc(50% - 512px);
-    background: $color-background-smoke;
+    &::after {
+      @include underline(100%, $color-primary, $color-secondary);
+
+      height: 0.15rem;
+      margin-top: 0.05rem;
+    }
   }
 }
