@@ -20,6 +20,19 @@ body {
     --gradientee-seed: 3200;
     --gradientee-deflection-level: 20;
     --gradientee-color-randomness: 0;
+    --gradientee-color-offset: 0.2;
+
+    @media screen and (max-width: 1000px) {
+      --gradientee-color-offset: 0.3;
+    }
+
+    @media screen and (max-width: 700px) {
+      --gradientee-color-offset: 0.4;
+    }
+
+    @media screen and (max-width: 512px) {
+      --gradientee-color-offset: 0.5;
+    }
 
     z-index: -2;
     background-image: paint(gradientee);
