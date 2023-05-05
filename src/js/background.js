@@ -13,13 +13,15 @@ if (!("paintWorklet" in CSS)) {
       canvas.width = document.documentElement.clientWidth;
       canvas.height = document.documentElement.clientHeight;
       const ctx = canvas.getContext("2d");
-      const midTile = window.matchMedia(
+      const mid = window.matchMedia(
         "only screen and (orientation: portrait) and (max-width: 1000px)"
       );
-      const smallTile = window.matchMedia(
+      const small = window.matchMedia(
         "only screen and (orientation: portrait) and (max-width: 700px)"
       );
-      const boxSize = smallTile ? 30 : midTile ? 40 : 60;
+      const tiny = window.matchMedia("only screen and (max-width: 512px)");
+      const boxSize = small ? 30 : mid ? 40 : 60;
+      const colorOffset = tiny ? 0.5 : small ? 0.4 : mid ? 0.3 : 0.2;
       gradientee(ctx, {
         width: canvas.clientWidth,
         height: canvas.clientHeight,
@@ -29,6 +31,7 @@ if (!("paintWorklet" in CSS)) {
         seed: 3200,
         deflectionLevel: 20,
         colorRandomness: 0,
+        colorOffset: colorOffset,
       });
       debounce = null;
     }, 150);
