@@ -23,10 +23,12 @@ body {
     --gradientee-color-offset: 0.2;
 
     @media screen and (max-width: 1000px) {
+      --gradientee-box-size: 40;
       --gradientee-color-offset: 0.3;
     }
 
     @media screen and (max-width: 700px) {
+      --gradientee-box-size: 30;
       --gradientee-color-offset: 0.4;
     }
 
@@ -42,6 +44,19 @@ body {
       position: fixed;
       width: 100vw;
       height: 100vh;
+      filter: blur(5px);
+
+      @media screen and (max-width: 1000px) {
+        filter: blur(4px);
+      }
+
+      @media screen and (max-width: 700px) {
+        filter: blur(3px);
+      }
+
+      @media screen and (max-width: 512px) {
+        filter: blur(2px);
+      }
     }
 
     > canvas {
