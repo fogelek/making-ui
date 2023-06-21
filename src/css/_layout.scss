@@ -1,4 +1,5 @@
 @import "variables/palette";
+@import "variables/transition-vars";
 
 nav.main,
 main,
@@ -68,7 +69,7 @@ main,
   background: $color-background-white;
   cursor: pointer;
   fill: $color-foreground;
-  transition: 300ms ease;
+  transition: $transition-time-short ease;
 
   &.visible {
     right: 1rem;

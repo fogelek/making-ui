@@ -36,7 +36,7 @@ ul.posts {
     margin-bottom: 0.5rem;
 
     &::after {
-      @include underline(40%, $color-primary, $color-middle);
+      @include underline(40%, $color-primary-header, $color-middle);
     }
   }
 

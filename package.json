@@ -6,10 +6,10 @@
     "css:dev": "npm run sass:dev",
     "css:prod": "npm run sass:prod & npm run postcss:prod",
     "js:prod": "terser src/js/* --compress -o dist/js/main.min.js",
-    "js:dev": "terser src/js/* --source-map --watch -o dist/js/main.js",
+    "js:dev": "terser src/js/* --source-map --watch -o dist/js/main.min.js",
     "eleventy:serve": "eleventy --serve",
     "eleventy:build": "eleventy",
-    "start": "npm run css:dev & npm run eleventy:serve",
+    "start": "npm run css:dev & npm run js:dev & npm run eleventy:serve",
     "build": "npm run css:prod && npm run eleventy:build && npm run js:prod && npm run social-images",
     "social-images": "eleventy-social-images --siteName 'Making UI' --outputDir dist --dataFile thumbnails/pages.json --imageDir images/thumbnails --templatePath thumbnails/thumbnail.html --width 1200 --height 627"
   },

@@ -1,6 +1,7 @@
 @import "variables/palette";
+@import "variables/transition-vars";
 
-.socials {
+.controls {
   display: flex;
   flex-direction: row;
   gap: 1em;
@@ -25,7 +26,7 @@
   .github,
   .instagram,
   .avatar {
-    transition: 0.3s transform ease;
+    transition: $transition-time-short transform ease;
 
     &:hover {
       transform: scale(1.25);

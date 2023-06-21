@@ -1,0 +1,299 @@
+@use "sass:color";
+@import "variables/transition-vars";
+
+/* stylelint-disable color-no-hex */
+$bg-light: #4d85b6;
+$bg-dark: #191f2f;
+$handle-off: #eecb55;
+$handle-on: #ccc;
+$handle-craters: #999;
+$shadow-dark: #0006;
+$shadow-light: #0000002b;
+$stars-fill: #fff;
+/* stylelint-enable color-no-hex */
+
+@mixin animate($animation) {
+  animation: $animation;
+  animation-duration: $animation-time;
+}
+
+.defs {
+  display: none;
+}
+
+.switch {
+  display: flex;
+  background-color: $bg-light;
+  font-size: 0.65rem;
+  cursor: pointer;
+  fill: $stars-fill;
+
+  @keyframes switch-turn-on {
+    from {
+      background-color: $bg-light;
+    }
+
+    60% {
+      background-color: $bg-dark;
+    }
+
+    to {
+      background-color: $bg-dark;
+    }
+  }
+
+  @keyframes switch-turn-off {
+    from {
+      background-color: $bg-dark;
+    }
+
+    60% {
+      background-color: $bg-light;
+    }
+
+    to {
+      background-color: $bg-light;
+    }
+  }
+
+  .background {
+    position: absolute;
+
+    .background-shades {
+      transform: translateX(0);
+
+      @keyframes shades-turn-on {
+        from {
+          transform: translateX(0);
+        }
+
+        50% {
+          transform: translateX(10.2em);
+        }
+
+        to {
+          transform: translateX(10em);
+        }
+      }
+
+      @keyframes shades-turn-off {
+        from {
+          transform: translateX(10em);
+        }
+
+        50% {
+          transform: translateX(-0.2em);
+        }
+
+        to {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  &,
+  .background,
+  .shadow-container {
+    width: 8.5em;
+    height: 4em;
+    border-radius: 4em;
+  }
+
+  .handle {
+    display: block;
+    width: 3em;
+    height: 3em;
+    margin: 0.5em 0.75em;
+    border-radius: 50%;
+    background-color: $handle-off;
+    box-shadow: -1px -3px 2px 0 rgb(0 0 0 / 50%) inset,
+      1px 2px 2px 1px rgb(255 255 255 / 69%) inset;
+
+    @keyframes handle-turn-on {
+      from {
+        background-color: $handle-off;
+        transform: translateX(0);
+      }
+
+      50% {
+        background-color: $handle-on;
+        transform: translateX(4.2em);
+      }
+
+      to {
+        background-color: $handle-on;
+        transform: translateX(4em);
+      }
+    }
+
+    @keyframes handle-turn-off {
+      from {
+        background-color: $handle-on;
+        transform: translateX(4em);
+      }
+
+      50% {
+        background-color: $handle-off;
+        transform: translateX(-0.2em);
+      }
+
+      to {
+        background-color: $handle-off;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .stars {
+    @keyframes stars-turn-on {
+      from {
+        transform: translateY(-5em);
+      }
+
+      50% {
+        transform: translateY(0.2em);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes stars-turn-off {
+      from {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5em);
+      }
+
+      to {
+        transform: translateY(-5em);
+      }
+    }
+  }
+
+  .clouds {
+    .cloud-outer {
+      fill: color.adjust($bg-light, $lightness: 40%);
+    }
+
+    .cloud-inner {
+      fill: color.adjust($bg-light, $lightness: 49%);
+    }
+
+    @keyframes clouds-turn-on {
+      from {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(5em);
+      }
+
+      to {
+        transform: translateY(5em);
+      }
+    }
+
+    @keyframes clouds-turn-off {
+      from {
+        transform: translateY(5em);
+      }
+
+      50% {
+        transform: translateY(-0.2em);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .craters {
+    fill: $handle-craters;
+    transition: $transition-time-long opacity;
+  }
+
+  &.on {
+    background-color: $bg-dark;
+
+    @include animate(switch-turn-on);
+
+    .handle {
+      background-color: $handle-on;
+      transform: translateX(4em);
+
+      @include animate(handle-turn-on);
+    }
+
+    .background-shades {
+      transform: translateX(10em);
+
+      @include animate(shades-turn-on);
+    }
+
+    .stars {
+      transform: translateY(0);
+
+      @include animate(stars-turn-on);
+    }
+
+    .clouds {
+      transform: translateY(5em);
+
+      @include animate(clouds-turn-on);
+    }
+  }
+
+  &.off {
+    @include animate(switch-turn-off);
+
+    .handle {
+      background-color: $handle-off;
+      transform: translateX(0);
+
+      @include animate(handle-turn-off);
+    }
+
+    .background-shades {
+      @include animate(shades-turn-off);
+    }
+
+    .stars {
+      transform: translateY(-5em);
+
+      @include animate(stars-turn-off);
+    }
+
+    .clouds {
+      transform: translateY(0);
+
+      @include animate(clouds-turn-off);
+    }
+
+    .craters {
+      opacity: 0;
+    }
+  }
+
+  .shadow-container {
+    position: absolute;
+    display: block;
+    box-shadow: -4px 4px 5px 0 $shadow-dark inset,
+      3px -3px 5px -1px $shadow-light inset;
+  }
+
+  &.init {
+    &,
+    .handle,
+    .background-shades,
+    .stars,
+    .clouds {
+      animation-duration: 0ms;
+    }
+  }
+}

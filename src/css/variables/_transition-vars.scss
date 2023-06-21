@@ -1,0 +1,15 @@
+$transition-time-short: var(--transition-time-short);
+$transition-time-long: var(--transition-time-long);
+$animation-time: var(--animation-time);
+
+@mixin transition-vars {
+  --transition-time-short: 300ms;
+  --transition-time-long: 500ms;
+  --animation-time: 1000ms;
+
+  @media (prefers-reduced-motion) {
+    --transition-time-short: 1ms;
+    --transition-time-long: 1ms;
+    --animation-time: 2ms;
+  }
+}

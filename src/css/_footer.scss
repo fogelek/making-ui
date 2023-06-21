@@ -11,6 +11,12 @@ footer {
   padding: 0 max(var(--margin), calc(50% - 512px)) 0.5rem;
   background: $color-background-smoke;
 
+  @media screen and (min-width: 600px) {
+    .switch {
+      display: none;
+    }
+  }
+
   @media screen and (max-width: 600px) {
     flex-direction: column;
     height: 6rem;

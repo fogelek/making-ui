@@ -1,4 +1,5 @@
 @import "variables/palette";
+@import "variables/transition-vars";
 
 .cookie-banner {
   position: fixed;
@@ -9,7 +10,7 @@
   width: 100vw;
   height: 8.5rem;
   background: $color-background-smoke;
-  transition: 500ms;
+  transition: $transition-time-long;
 
   @media screen and (max-width: 660px) {
     height: fit-content;

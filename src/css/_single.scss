@@ -41,7 +41,7 @@ main {
       }
 
       &::after {
-        @include underline(100%, $color-primary, $color-secondary);
+        @include underline(100%, $color-primary-header, $color-secondary);
       }
     }
 

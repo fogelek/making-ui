@@ -1,4 +1,5 @@
 @import "variables/palette";
+@import "variables/transition-vars";
 
 body {
   display: flex;
@@ -13,6 +14,8 @@ body {
   );
   color: $color-foreground;
 
+  @include transition-vars;
+
   .bg-container {
     --gradientee-color-from: #{$color-primary-background};
     --gradientee-color-to: #{$color-secondary-background};
@@ -20,20 +23,13 @@ body {
     --gradientee-seed: 3200;
     --gradientee-deflection-level: 20;
     --gradientee-color-randomness: 0;
-    --gradientee-color-offset: 0.2;
 
     @media screen and (max-width: 1000px) {
       --gradientee-box-size: 40;
-      --gradientee-color-offset: 0.3;
     }
 
     @media screen and (max-width: 700px) {
       --gradientee-box-size: 30;
-      --gradientee-color-offset: 0.4;
-    }
-
-    @media screen and (max-width: 512px) {
-      --gradientee-color-offset: 0.5;
     }
 
     z-index: -2;
@@ -44,18 +40,18 @@ body {
       position: fixed;
       width: 100vw;
       height: 100vh;
-      filter: blur(5px);
+      filter: blur(5px) contrast(0.9);
 
       @media screen and (max-width: 1000px) {
-        filter: blur(4px);
+        filter: blur(4px) contrast(0.8);
       }
 
       @media screen and (max-width: 700px) {
-        filter: blur(3px);
+        filter: blur(3px) contrast(0.7);
       }
 
       @media screen and (max-width: 512px) {
-        filter: blur(2px);
+        filter: blur(2px) contrast(0.6);
       }
     }
 

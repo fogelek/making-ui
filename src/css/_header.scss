@@ -12,7 +12,7 @@ header {
   @media screen and (max-width: 700px) {
     justify-content: center;
 
-    .socials {
+    .controls {
       display: none;
     }
   }
@@ -32,7 +32,7 @@ header {
   }
 
   .title::after {
-    @include underline(100%, $color-primary, $color-secondary);
+    @include underline(100%, $color-primary-header, $color-secondary);
   }
 
   .subtitle {

@@ -1,4 +1,5 @@
 @import "variables/palette";
+@import "variables/transition-vars";
 
 article-box {
   display: grid;
@@ -16,7 +17,11 @@ article-box {
     grid-row: 1;
     grid-column: 1;
     border-radius: 18px;
-    background: linear-gradient(90deg, $color-secondary, $color-primary);
+    background: linear-gradient(
+      90deg,
+      $color-secondary,
+      $color-primary-background
+    );
     box-shadow: 3px 3px 15px 3px $color-black;
     opacity: 0.8;
 
@@ -28,8 +33,8 @@ article-box {
       width: 100%;
       height: 100%;
       border-radius: 10px;
-      background: $color-black;
-      transition: 300ms ease;
+      background: $color-box-background;
+      transition: $transition-time-short ease;
     }
   }
 

@@ -1,5 +1,6 @@
 @use "sass:color";
 @import "variables/palette";
+@import "variables/transition-vars";
 
 button {
   padding: 0.25rem 1.5rem;
@@ -8,7 +9,7 @@ button {
   background: $color-background;
   color: $color-foreground;
   cursor: pointer;
-  transition: 300ms ease;
+  transition: $transition-time-short ease;
 
   &:hover {
     box-shadow: 0 0 0 3px $color-border-light inset;
@@ -17,12 +18,12 @@ button {
 
   &.primary {
     border-color: $color-primary-background-light;
-    background: color.adjust($color-primary, $lightness: -30%);
+    background: $color-primary-button-background;
+    color: $color-primary-button-text;
     box-shadow: none;
 
     &:hover {
-      background: $color-primary-background-light;
-      box-shadow: none;
+      box-shadow: 0 0 0 3px $color-primary-background-light inset;
     }
   }
 }

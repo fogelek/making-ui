@@ -1,0 +1,149 @@
+@use "sass:color";
+
+// stylelint-disable color-no-hex -- palette file
+
+@mixin dark-theme {
+  $color-primary: #2f2;
+  $color-secondary: #22f;
+  $color-primary-header: $color-primary;
+  $color-primary-background: color.adjust($color-primary, $lightness: -20%);
+  $color-secondary-background: color.adjust($color-secondary, $lightness: -20%);
+  $color-primary-background-light: color.adjust(
+    $color-primary-background,
+    $whiteness: 15%
+  );
+  $color-secondary-background-light: color.adjust(
+    $color-secondary-background,
+    $whiteness: 15%
+  );
+  $color-primary-button-background: color.adjust(
+    $color-primary,
+    $lightness: -35%
+  );
+  $color-middle: color.mix($color-primary, $color-secondary, 40%);
+
+  --color-background: #282a36;
+  --color-foreground: #f8f8f2;
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-primary-header: #{$color-primary-header};
+  --color-primary-background: #{$color-primary-background};
+  --color-secondary-background: #{$color-secondary-background};
+  --color-primary-background-light: #{$color-primary-background-light};
+  --color-secondary-background-light: #{$color-secondary-background-light};
+  --color-primary-button-background: #{$color-primary-button-background};
+  --color-primary-button-text: var(--color-foreground);
+  --color-middle: #{$color-middle};
+  --color-primary-text: #a8ff60;
+  --color-secondary-text: #96cbfe;
+  --color-border-light: #6272a4;
+  --color-background-smoke: #000c;
+  --color-background-white: #fff4;
+  --color-background-white-hover: #fff9;
+  --color-black: #000;
+  --color-box-background: #000;
+}
+
+@mixin light-theme {
+  $color-primary: #2f2;
+  $color-secondary: #22f;
+  $color-primary-header: color.adjust($color-primary, $lightness: -25%);
+  $color-primary-background: color.adjust($color-primary, $lightness: -20%);
+  $color-secondary-background: color.adjust($color-secondary, $lightness: -20%);
+  $color-primary-background-light: color.adjust(
+    $color-primary-background,
+    $whiteness: 15%
+  );
+  $color-secondary-background-light: color.adjust(
+    $color-secondary-background,
+    $whiteness: 15%
+  );
+  $color-primary-button-background: color.adjust(
+    $color-primary,
+    $lightness: -35%
+  );
+  $color-middle: color.mix($color-primary, $color-secondary, 40%);
+
+  --color-background: #f8f8f2;
+  --color-foreground: #282a36;
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-primary-header: #{$color-primary-header};
+  --color-primary-background: #{$color-primary-background};
+  --color-secondary-background: #{$color-secondary-background};
+  --color-primary-background-light: #{$color-primary-background-light};
+  --color-secondary-background-light: #{$color-secondary-background-light};
+  --color-primary-button-background: #{$color-primary-button-background};
+  --color-primary-button-text: var(--color-background);
+  --color-middle: #{$color-middle};
+  --color-primary-text: #48662f;
+  --color-secondary-text: #96cbfe;
+  --color-border-light: #6272a4;
+  --color-background-smoke: #fffe;
+  --color-background-white: #fff4;
+  --color-background-white-hover: #fff9;
+  --color-black: #000;
+  --color-box-background: #fff;
+}
+
+@mixin code-dark {
+  --code-background: #1d1f21;
+  --code-text: #c5c8c6;
+  --code-class-name: #ffffb6;
+  --code-constant: #9c9;
+  --code-comment: #c5c8c6;
+  --code-punctuation: var(--code-comment);
+  --code-symbol: #f92672;
+  --code-number: #ff73fd;
+  --code-keyword: #96cbfe;
+  --code-selector: #a8ff60;
+  --code-attribute: #f9ee98;
+  --code-operator: #ededed;
+  --code-variable: #c6c5fe;
+  --code-entity: #ffffb6;
+  --code-url: #96cbfe;
+  --code-string: #87c38a;
+  --code-function: #dad085;
+  --code-regex: #e9c062;
+  --code-important: #fd971f;
+  --code-property: var(--code-keyword);
+  --code-inline: var(--code-property);
+  --code-shadow: 0 1px #0000004c;
+}
+
+@mixin code-light {
+  --code-background: #f5f2f0;
+  --code-text: #000;
+  --code-function: #a6354c;
+  --code-class-name: var(--code-function);
+  --code-property: #905;
+  --code-constant: var(--code-property);
+  --code-comment: #5a6775;
+  --code-punctuation: #999;
+  --code-symbol: var(--code-property);
+  --code-number: var(--code-property);
+  --code-keyword: #00608a;
+  --code-selector: #517901;
+  --code-attribute: var(--code-keyword);
+  --code-operator: #690;
+  --code-variable: #ae7002;
+  --code-entity: var(--code-operator);
+  --code-url: var(--code-operator);
+  --code-string: var(--code-operator);
+  --code-regex: var(--code-variable);
+  --code-important: var(--code-variable);
+  --code-inline: var(--code-keyword);
+  --code-shadow: 0 1px #fff;
+}
+
+body {
+  &.dark {
+    @include dark-theme;
+    @include code-dark;
+  }
+
+  &.light {
+    @include light-theme;
+    @include code-light;
+  }
+}

@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Opinionated guide through web development and design">
     <meta name="keywords" content="HTML, CSS, JavaScript, TypeScript, React, UI, WebDev">
-    <meta name="author" content="Michal Fogelman">
+    <meta name="author" content="Fogel Fogelman">
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Eleventy">
     {% if title %}
@@ -50,6 +50,69 @@
     <script type="text/javascript" src="/js/gradientee.min.js"></script>
 </head>
 <body>
+     <svg class="defs" viewBox="0 0 150 40" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="blurBg">
+          <feGaussianBlur stdDeviation="1" />
+        </filter>
+        <g id="bg">
+          <circle r="60" cx="20" cy="20" opacity="20%" filter="url(#blurBg)" />
+          <circle r="85" cx="20" cy="20" opacity="30%" filter="url(#blurBg)" />
+          <circle r="110" cx="20" cy="20" opacity="40%" filter="url(#blurBg)" />
+        </g>
+        <g>
+          <path
+            id="star"
+            d="M 5,0
+          A 10,10 0 0,0 10,5
+          A 10,10 0 0,0 5,10
+          A 10,10 0 0,0 0,5
+          A 10,10 0 0,0 5,0"
+          ></path>
+          <use href="#star" transform="scale(1.5)" id="star-large" />
+          <use href="#star" transform="scale(0.7)" id="star-small" />
+          <use href="#star" transform="scale(0.5)" id="star-tiny" />
+        </g>
+        <g id="stars">
+          <use href="#star-tiny" x="60" y="15" />
+          <use href="#star-tiny" x="53" y="-10" />
+          <use href="#star-tiny" x="103" y="40" />
+          <use href="#star-small" x="90" y="20" />
+          <use href="#star-small" x="15" y="16" />
+          <use href="#star-small" x="25" y="40" />
+          <use href="#star" x="80" y="-10" />
+          <use href="#star" x="63" y="37" />
+          <use href="#star-large" x="25" y="-5" />
+          <use href="#star-large" x="108" y="3" />
+        </g>
+        <g>
+          <path
+            id="cloud-outer"
+            d="M0,65
+              A32,32 0 0,1 34,40
+              A40,40 0 0,1 67,30
+              A25,25 0 0,1 97,30
+              A15,15 0 0,1 112,20
+              A25,25 0 0,1 127,10
+              A20,20 0 0,1 150,-10
+              L150,0
+              L150,65"
+          />
+          <path
+            id="cloud-inner"
+            d="M0,65
+              A32,32 0 0,1 34,50
+              A40,40 0 0,1 65,45
+              A55,55 0 0,1 109,43
+              A15,15 0 0,1 112,38
+              A30,30 0 0,1 127,30
+              A30,30 0 0,1 150,13
+              L150,0
+              L150,65"
+          />
+        </g>
+      </defs>
+    </svg>
     <div class="bg-container">
         <canvas></canvas>
     </div>
@@ -62,7 +125,9 @@
         <a href="/" class="root-link">
             <h3>Making UI</h3>
         </a>
-        {% include "partials/topmenu.njk" %}
+         <div class="controls">
+          {% include "partials/socials.njk" %}
+        </div>
         <a href="#" class="reset-cookie-consent" onclick="cookieConsent(null)">Reset cookie settings</a>
     </footer>
     <div id="go-to-top" class="up-arrow">

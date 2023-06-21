@@ -5,7 +5,10 @@
             <span class="subtitle">{{ metadata.subtitle }}</span>
         </h1>
     </a>
-    {% include "partials/topmenu.njk" %}
+    <div class="controls">
+        {% include "partials/dark-switch.njk" %}
+        {% include "partials/socials.njk" %}
+    </div>
 </header>
 <nav class="main">
     {{ content | safe }}

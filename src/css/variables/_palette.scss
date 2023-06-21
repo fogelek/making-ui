@@ -1,29 +1,23 @@
-@use "sass:color";
-
-// stylelint-disable color-no-hex -- palette file
-
-$color-background: #282a36;
-$color-foreground: #f8f8f2;
-$color-primary: #2f2;
-$color-secondary: #22f;
-$color-primary-background: color.adjust($color-primary, $lightness: -20%);
-$color-secondary-background: color.adjust($color-secondary, $lightness: -20%);
-$color-primary-background-light: color.adjust(
-  $color-primary-background,
-  $whiteness: 15%
-);
-$color-secondary-background-light: color.adjust(
-  $color-secondary-background,
-  $whiteness: 15%
-);
-$color-middle: color.mix($color-primary, $color-secondary, 40%);
-$color-primary-text: #a8ff60;
-$color-secondary-text: #96cbfe;
-$color-border-light: #6272a4;
-$color-background-smoke: #000c;
-$color-background-white: #fff4;
-$color-background-white-hover: #fff9;
-$color-black: #000;
+$color-background: var(--color-background);
+$color-foreground: var(--color-foreground);
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+$color-primary-header: var(--color-primary-header);
+$color-primary-background: var(--color-primary-background);
+$color-secondary-background: var(--color-secondary-background);
+$color-primary-background-light: var(--color-primary-background-light);
+$color-secondary-background-light: var(--color-secondary-background-light);
+$color-primary-button-background: var(--color-primary-button-background);
+$color-primary-button-text: var(--color-primary-button-text);
+$color-middle: var(--color-middle);
+$color-primary-text: var(--color-primary-text);
+$color-secondary-text: var(--color-secondary-text);
+$color-border-light: var(--color-border-light);
+$color-background-smoke: var(--color-background-smoke);
+$color-background-white: var(--color-background-white);
+$color-background-white-hover: var(--color-background-white-hover);
+$color-black: var(--color-black);
+$color-box-background: var(--color-box-background);
 
 @mixin box-colors-reset {
   background: inherit;
